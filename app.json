@@ -1,0 +1,34 @@
+{
+    "name": "Nope",
+    "description": "App Fully.",
+    "repository": "https://github.com/free32com/her0cu.git",
+    "logo": "https://imgur.com/1qCGUwK.png",
+    "keywords": ["docker"],
+    "stack": "container",
+    "env": {
+      "VNC_TITLE" : {
+        "description": "Nope app, w/o spaces.",
+	      "value" : "Nope",
+        "required" : true
+      } ,
+      "VNC_PASS": {
+        "description": "VNC password",
+        "required" : true
+      },
+      "VNC_RESOLUTION" : {
+        "description": "VNC Server Resolution in WxH, 720p is preferrable.",
+		"value" : "1600x900",
+        "required" : true
+        },
+      "NO_SLEEP" : {
+        "description": "Prevent app from sleeping, 1=on, 0=off",
+                "value" : "1",
+        "required" : true
+        },
+      "APP_NAME" : {
+        "description": "Name of the app, same as mentioned above.",
+                "value" : "Nope",
+        "required" : true
+        }
+    } 
+  }
