@@ -1,25 +1,23 @@
 {
-    "name": "VPS BY RixEtte",
-	"description": "Deploy VNC to Heroku.",
-	"keywords": ["VNC", "Docker"],
-	"env": {
-	},
-	"website": "",
-	"repository": "",
-	"stack": "container"
+    "name": "Vubuntu",
+    "description": "Fully fledged Ubuntu NoVNC, refer readme for more info.",
+    "repository": "",
+    "logo": "https://imgur.com/1qCGUwK.png",
+    "keywords": ["docker","ubuntu", "vscode", "novnc", "firefox", "brave", "fluxbox", "linux", "remote", "ssh", "vnc", "vubuntu"],
+    "stack": "container",
     "env": {
       "VNC_TITLE" : {
-        "description": "Nope app, w/o spaces.",
-	      "value" : "Nope",
+        "description": "VNC Session Title, w/o spaces.",
+	      "value" : "Vubuntu",
         "required" : true
       } ,
       "VNC_PASS": {
-        "description": "VNC password",
+        "description": "VNC server password w/o spaces.",
         "required" : true
       },
       "VNC_RESOLUTION" : {
         "description": "VNC Server Resolution in WxH, 720p is preferrable.",
-		"value" : "1600x900",
+		"value" : "1900x600",
         "required" : true
         },
       "NO_SLEEP" : {
@@ -29,7 +27,7 @@
         },
       "APP_NAME" : {
         "description": "Name of the app, same as mentioned above.",
-                "value" : "Nope",
+                "value" : "",
         "required" : true
         }
     } 
