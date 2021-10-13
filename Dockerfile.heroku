@@ -1,8 +1,8 @@
 FROM ubuntu:20.04
 
-LABEL AboutImage "p2proapp"
+LABEL AboutImage "Ubuntu20.04_Fluxbox_NoVNC"
 
-LABEL Maintainer "p2proapp"
+LABEL Maintainer "Apoorv Vyavahare <apoorvvyavahare@pm.me>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -11,7 +11,7 @@ ENV	VNC_PASS="samplepass" \
 #VNC Server Title(w/o spaces)
 	VNC_TITLE="Vubuntu_Desktop" \
 #VNC Resolution(720p is preferable)
-	VNC_RESOLUTION="1600x900" \
+	VNC_RESOLUTION="1280x720" \
 #VNC Shared Mode (0=off, 1=on)
 	VNC_SHARED=0 \
 #Local Display Server Port
@@ -19,7 +19,7 @@ ENV	VNC_PASS="samplepass" \
 #NoVNC Port
 	NOVNC_PORT=$PORT \
 #Ngrok Token (Strictly use private token if using the service)
-	NGROK_AUTH_TOKEN="1Zi3HFhCxa3fRktJZHgZt8gxyNK_62zc3D5Ye2T6ff9Pokn3v" \
+	NGROK_AUTH_TOKEN="1xM4IHjFpX4CwPYr82zZJH9ZjYQ_5kmfqfXit97FkTYSGUrZJ" \
 #Locale
 	LANG=en_US.UTF-8 \
 	LANGUAGE=en_US.UTF-8 \
@@ -43,6 +43,7 @@ RUN rm -f /etc/apt/sources.list && \
 	htop \
 	git \
 	curl \
+	vim \
 	zip \
 	sudo \
 	net-tools \
@@ -51,14 +52,30 @@ RUN rm -f /etc/apt/sources.list && \
 	python3 \
 	python3-pip \
 	python-is-python3 \
+	#perl \
+	#ruby \
+	golang \
+	#lua5.3 \
+	#scala \
+	#mono-complete \
+	#r-base \
+	default-jre \
+	default-jdk \
+	#clojure \
+	#php \
+	nodejs \
+	npm \
 	firefox \
-	autocutsel \
-	xclip \
+	gnome-terminal \
+	gnome-calculator \
 	gnome-system-monitor \
 	gedit \
+	vim-gtk3 \
 	mousepad \
+	libreoffice \
 	pcmanfm \
-	lxterminal \
+	gedit \
+	lxteminal \
 	supervisor \
 	x11vnc \
 	xvfb \
@@ -68,6 +85,7 @@ RUN rm -f /etc/apt/sources.list && \
 	gdebi-core \
 	nginx \
 	openvpn \
+	ffmpeg \
 	pluma && \
 #Fluxbox
 	apt-get install -y /app/.vubuntu/assets/packages/fluxbox.deb && \
@@ -102,7 +120,7 @@ RUN export UNAME=$UNAME UID=1000 GID=1000 && \
     chmod 0440 /etc/sudoers.d/${UNAME} && \
     chown ${UID}:${GID} -R /home/${UNAME} && \
     gpasswd -a ${UNAME} audio
-    
+	
 ENTRYPOINT ["supervisord", "-l", "/app/.vubuntu/supervisord.log", "-c"]
 
 CMD ["/app/.vubuntu/assets/configs/supervisordconf"]
