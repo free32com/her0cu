@@ -1,5 +1,3 @@
-FROM free32com/her0cu:latest
-
 ENV 	DEBIAN_FRONTEND=noninteractive \
 #VNC Server Password
 	VNC_PASS="samplepass" \
